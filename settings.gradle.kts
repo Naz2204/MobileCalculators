@@ -19,6 +19,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "PR1"
+rootProject.name = "MobileCalculators"
 include(":pr1")
 include(":pr2")
+include(":pr3")
