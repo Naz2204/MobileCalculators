@@ -63,19 +63,25 @@ fun OilInputScreen(navController: NavController) {
 
     Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) },
-        topBar = { TopAppBar(title = { Text("Калькулятор") }) }
+        topBar = {
+            TopAppBar(title = { Text("Калькулятор мазуту") })
+        }
     ) { padding ->
-
         Column(
             modifier = Modifier
                 .padding(padding)
-                .padding(20.dp)
+                .padding(top = 10.dp, end = 20.dp, start = 20.dp, bottom = 20.dp)
                 .fillMaxSize()
                 .verticalScroll(scrollState)
                 .imePadding(),
             verticalArrangement = Arrangement.spacedBy(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            Button(
+                onClick = {navController.navigate("input/fuel")}
+            ) {
+                Text("Перейти до Паливо")
+            }
 
             InputField("C", superscript = "Г", measurement = "(%)", value = carbon) {
                 carbon = it
@@ -170,7 +176,6 @@ fun ResultScreenOil(result: Map<String, *>, navController: NavController) {
                 .padding(20.dp)
                 .fillMaxSize()
                 .verticalScroll(scrollState),
-            verticalArrangement = Arrangement.SpaceEvenly,
             horizontalAlignment = Alignment.Start
         ) {
             Text (
