@@ -20,4 +20,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "PR1"
-include(":app")
+include(":pr1")
+include(":pr2")

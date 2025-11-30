@@ -92,7 +92,7 @@ fun OilInputScreen(navController: NavController) {
             InputField("S", superscript = "Г", measurement = "(%)", value = sulfur) {
                 sulfur = it
             }
-            InputField("V", superscript = "С", measurement = "(%)", value = vanadiumDry) {
+            InputField("V", superscript = "С", measurement = "(мг/кг)", value = vanadiumDry) {
                 vanadiumDry = it
             }
             InputField("O", superscript = "Г", measurement = "(%)", value = oxygen) {
@@ -104,7 +104,7 @@ fun OilInputScreen(navController: NavController) {
             InputField("A", superscript = "С", measurement = "(%)", value = ashDry) {
                 ashDry = it
             }
-            InputField("Q", superscript = "daf", subscript = "i", measurement = "(%)",
+            InputField("Q", superscript = "daf", subscript = "i", measurement = "МДж/кг",
                 value = lowBurnFireTemp) {
                 lowBurnFireTemp = it
             }
