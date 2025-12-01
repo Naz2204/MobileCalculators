@@ -23,3 +23,4 @@ rootProject.name = "MobileCalculators"
 include(":pr1")
 include(":pr2")
 include(":pr3")
+include(":pr4")
