@@ -2,7 +2,6 @@
 
 package ua.ipze.kpi.pr4
 
-import android.R
 import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -22,32 +21,24 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.BaselineShift
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.doubleOrNull
-import kotlinx.serialization.json.intOrNull
 import org.json.JSONObject
-import java.lang.Math.pow
-import kotlin.io.path.Path
 import kotlin.math.pow
 import kotlin.math.sqrt
 
@@ -64,22 +55,18 @@ fun InputScreen(navController: NavController) {
     var U_k by remember { mutableStateOf("") }
     var S_nom_t by remember { mutableStateOf("") }
 
-    var l by remember { mutableStateOf("") };
-    var U_k_max by remember { mutableStateOf("") };
-    var U_vn by remember { mutableStateOf("") };
-    var U_nn by remember { mutableStateOf("") };
-    var R_sn by remember { mutableStateOf("") };
-    var X_sn by remember { mutableStateOf("") };
-    var R_s_min by remember { mutableStateOf("") };
-    var X_s_min by remember { mutableStateOf("") };
-
-    val snackbarHostState = remember { SnackbarHostState() }
-    val scope = rememberCoroutineScope()
+    var l by remember { mutableStateOf("") }
+    var U_k_max by remember { mutableStateOf("") }
+    var U_vn by remember { mutableStateOf("") }
+    var U_nn by remember { mutableStateOf("") }
+    var R_sn by remember { mutableStateOf("") }
+    var X_sn by remember { mutableStateOf("") }
+    var R_s_min by remember { mutableStateOf("") }
+    var X_s_min by remember { mutableStateOf("") }
 
     val scrollState = rememberScrollState()
 
     Scaffold(
-        snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             TopAppBar(title = { Text("Калькулятор прибутку") })
         }
@@ -408,7 +395,7 @@ fun calculateKZ(S_k: Double, U_cn: Double, U_k: Double, S_nom_t: Double): Double
         I_p0 = 0.00
     }
 
-    return I_p0;
+    return I_p0
 }
 
 fun calculateKZonStation(l: Double, U_k_max: Double, U_vn: Double, U_nn: Double, S_nom_t: Double,
@@ -462,7 +449,7 @@ fun calculateKZonStation(l: Double, U_k_max: Double, U_vn: Double, U_nn: Double,
     val I_l_n3_min = ((U_nn * 1e3) / (sqrt(3.0) * Z_sum_n_min)).safeFormat()
     val I_l_n2_min = (I_l_n3_min * (sqrt(3.0) / 2)).safeFormat()
 
-    var result = arrayOf(
+    val result = arrayOf(
         arrayOf(I_h3, I_h2, I_h3_min, I_h2_min),
         arrayOf(I_h_n3, I_h_n2, I_h_n3_min, I_h_n2_min),
         arrayOf(I_l_n3, I_l_n2, I_l_n3_min, I_l_n2_min)
